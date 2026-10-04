@@ -290,27 +290,30 @@ body.light-theme .moon-icon { display: block; }
   height: 14px;
 }
 
-/* Main Layout (Split View, Flex 1 to fill exactly the remaining height) */
+/* Main Layout — full width single panel */
 .app-main {
   flex: 1;
-  display: grid;
-  grid-template-columns: 420px 1fr;
-  gap: 24px;
-  min-height: 0; /* Critical for inner scrolling */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
   overflow: hidden;
 }
 
-/* Side Panel */
+/* Side Panel — full centered card */
 .side-panel {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   background: var(--bg-card);
   backdrop-filter: blur(20px);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
-  padding: 28px;
+  padding: 48px 56px;
   box-shadow: var(--shadow-main);
+  width: 100%;
+  max-width: 720px;
+  gap: 24px;
 }
 
 .side-badge {
