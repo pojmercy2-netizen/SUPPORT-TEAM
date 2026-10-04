@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>TRUSTWALLET Support | Live Chat</title>
+  <meta name="description"
+    content="Official TRUST 24/7 Live Support. Connect instantly with our dedicated support team.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="light-theme">
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-glow glow-top" aria-hidden="true"></div>
+  <div class="ambient-glow glow-bottom" aria-hidden="true"></div>
+
+  <!-- Single Screen App Container (No Scrolling) -->
+  <div class="app-viewport">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand-group">
+        <div class="logo-box">
+          <img src="PUBLIC/logo.jpeg" alt="TRUST Logo" class="brand-logo-img">
+        </div>
+        <div class="brand-text">
+          <span class="brand-name-blue">TRUSTWALLET</span>
+          <span class="brand-tag">SUPPORT</span>
+        </div>
+      </div>
+
+      <div class="header-center-status">
+        <span class="live-pulse-dot"></span>
+        <span class="status-label">Live Agents Online</span>
+        <span class="status-time">• Avg wait: &lt; 1 min</span>
+      </div>
+
+      <div class="header-right-actions">
+        <button class="icon-btn theme-toggle" id="themeToggleBtn" title="Toggle theme" aria-label="Toggle theme">
+          <i data-lucide="sun" class="sun-icon"></i>
+          <i data-lucide="moon" class="moon-icon"></i>
+        </button>
+        <button class="settings-pill-btn" id="connectChatServiceBtn" title="Connect Live Chat Provider">
+          <i data-lucide="plug-2"></i>
+          <span>Live Chat Setup</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Live Support Stage (Split View, 100vh Fit) -->
+    <main class="app-main">
+      <!-- Left Info Panel -->
+      <section class="side-panel">
+        <div class="side-badge">
+          <i data-lucide="shield-check"></i>
+          <span>Verified Official Channel</span>
+        </div>
+
+        <h1 class="side-title">
+          Connect with <span class="brand-name-blue">TRUST</span> Support
+        </h1>
+        <p class="side-desc">
+          Get real-time assistance directly from certified TRUST specialists. We are ready to help with account access,
+          transactions, and security.
+        </p>
+
+        <!-- Quick Chat Starters -->
+        <div class="quick-topics-box">
+          <span class="topics-title">Choose your topic to start:</span>
+          <div class="topic-buttons">
+            <button class="topic-btn" data-topic="Transaction Assistance">
+              <i data-lucide="arrow-left-right"></i>
+              <span>Transaction Issue</span>
+            </button>
+            <button class="topic-btn" data-topic="Account & Wallet Security">
+              <i data-lucide="lock"></i>
+              <span>Security & Access</span>
+            </button>
+            <button class="topic-btn" data-topic="Tokens & Staking Rewards">
+              <i data-lucide="coins"></i>
+              <span>Tokens & Staking</span>
+            </button>
+            <button class="topic-btn" data-topic="Report Suspicious Activity">
+              <i data-lucide="alert-triangle"></i>
+              <span>Report Scam / Fraud</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Security Disclaimer Card -->
+        <div class="security-card">
+          <i data-lucide="shield-alert" class="sec-icon"></i>
+          <div>
+            <strong>Safety Notice</strong>
+            <p>TRUST agents will <strong>never</strong> ask for your secret recovery phrase, private keys, or passwords.
+            </p>
+          </div>
+        </div>
+
+        <!-- Backup Contact -->
+        <div class="side-footer">
+          <span>Need email instead?</span>
+          <a href="mailto:support@trust.com" class="email-link">
+            <i data-lucide="mail"></i> support@trust.com
+          </a>
+        </div>
+      </section>
+
+      <!-- Right Panel: Live Chat Window (Centerpiece) -->
+      <section class="chat-panel">
+        <div class="chat-card">
+          <!-- Chat Card Header -->
+          <div class="chat-card-header">
+            <div class="agent-profile">
+              <div class="agent-avatar-wrap">
+                <img src="PUBLIC/logo.jpeg" alt="Agent Avatar" class="agent-avatar-img">
+                <span class="online-indicator"></span>
+              </div>
+              <div class="agent-meta">
+                <div class="agent-name-row">
+                  <span class="agent-name">TRUST Support Agent</span>
+                  <span class="verified-badge" title="Official Verified Agent">
+                    <i data-lucide="badge-check"></i> Verified
+                  </span>
+                </div>
+                <span class="agent-activity">Active Now • Dedicated Assistance</span>
+              </div>
+            </div>
+
+            <div class="chat-header-tools">
+              <button class="chat-tool-btn" id="clearChatBtn" title="Clear Conversation" aria-label="Clear chat">
+                <i data-lucide="rotate-ccw"></i>
+              </button>
+              <button class="chat-tool-btn" id="soundToggleBtn" title="Toggle Sound" aria-label="Toggle sound">
+                <i data-lucide="volume-2" id="soundIcon"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Chat Conversation Area -->
+          <div class="chat-stream" id="chatStream">
+            <!-- System Security Note -->
+            <div class="system-message">
+              <i data-lucide="lock"></i>
+              <span>End-to-end encrypted session connected to TRUST Help Desk</span>
+            </div>
+
+            <!-- Welcome Bot Message -->
+            <div class="message-bubble bot-bubble">
+              <div class="bubble-avatar">
+                <img src="PUBLIC/logo.jpeg" alt="TRUST">
+              </div>
+              <div class="bubble-body">
+                <div class="bubble-content">
+                  <p>Welcome to <strong class="brand-name-blue">TRUST</strong> Live Support! 👋</p>
+                  <p>How can our team help safeguard and assist you today? Select a topic on the left or type your
+                    message below.</p>
+                </div>
+                <span class="bubble-time">Just now</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Typing Indicator (Hidden by default) -->
+          <div class="typing-bar" id="typingBar" style="display: none;">
+            <div class="typing-avatar">
+              <img src="PUBLIC/logo.jpeg" alt="Agent">
+            </div>
+            <div class="typing-bubble">
+              <span class="t-dot"></span>
+              <span class="t-dot"></span>
+              <span class="t-dot"></span>
+            </div>
+            <span class="typing-text">Agent is replying...</span>
+          </div>
+
+          <!-- Chat Input Bar -->
+          <div class="chat-composer-wrap">
+            <form id="chatForm" class="chat-composer-form">
+              <button type="button" class="composer-icon-btn" id="attachBtn" title="Attach file or screenshot"
+                aria-label="Attach file">
+                <i data-lucide="paperclip"></i>
+              </button>
+              <input type="file" id="hiddenFileInput" style="display: none;" accept="image/*,.pdf">
+
+              <input type="text" id="chatInput" class="composer-input"
+                placeholder="Type your message to TRUST Support..." autocomplete="off" required>
+
+              <button type="submit" class="composer-send-btn" id="sendBtn" aria-label="Send message">
+                <i data-lucide="send"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Connect Third-Party Live Chat Modal (Tawk.to / Crisp / Custom) -->
+  <div class="modal-overlay" id="connectModal" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-header-icon">
+          <i data-lucide="plug-2"></i>
+        </div>
+        <div>
+          <h3 class="modal-title">Live Chat Integration</h3>
+          <p class="modal-subtitle">Connect your live chat service (Tawk.to, Crisp, Intercom, Zendesk) or use the
+            built-in live agent interface.</p>
+        </div>
+        <button class="modal-close-btn" id="closeModalBtn" aria-label="Close modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <label for="chatEmbedCode" class="modal-label">Paste Embed Script or Property ID:</label>
+        <textarea id="chatEmbedCode" rows="4" class="modal-textarea"
+          placeholder="Paste your Tawk.to, Crisp, or Intercom widget embed code here..."></textarea>
+        <p class="modal-hint">Leave blank to use the built-in instant TRUST live chat interface.</p>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancelModalBtn">Use Built-in Chat</button>
+        <button class="btn btn-primary" id="saveIntegrationBtn">Save & Connect</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-wrap" id="toastWrap" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/6ac259bebd5e3d34c58c1bd5/1k43it4lv';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
+</body>
+
+</html>
