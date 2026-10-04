@@ -23,6 +23,7 @@
 
   <!-- Single Screen App Container (No Scrolling) -->
   <div class="app-viewport">
+
     <!-- Header -->
     <header class="app-header">
       <div class="brand-group">
@@ -46,17 +47,13 @@
           <i data-lucide="sun" class="sun-icon"></i>
           <i data-lucide="moon" class="moon-icon"></i>
         </button>
-        <button class="settings-pill-btn" id="connectChatServiceBtn" title="Connect Live Chat Provider">
-          <i data-lucide="plug-2"></i>
-          <span>Live Chat Setup</span>
-        </button>
       </div>
     </header>
 
-    <!-- Main Live Support Stage (Split View, 100vh Fit) -->
+    <!-- Main Support Stage (Full Width, 100vh Fit) -->
     <main class="app-main">
-      <!-- Left Info Panel -->
       <section class="side-panel">
+
         <div class="side-badge">
           <i data-lucide="shield-check"></i>
           <span>Verified Official Channel</span>
@@ -74,19 +71,19 @@
         <div class="quick-topics-box">
           <span class="topics-title">Choose your topic to start:</span>
           <div class="topic-buttons">
-            <button class="topic-btn" data-topic="Transaction Assistance">
+            <button class="topic-btn" onclick="openTawkChat('Transaction Assistance')">
               <i data-lucide="arrow-left-right"></i>
               <span>Transaction Issue</span>
             </button>
-            <button class="topic-btn" data-topic="Account & Wallet Security">
+            <button class="topic-btn" onclick="openTawkChat('Account & Wallet Security')">
               <i data-lucide="lock"></i>
               <span>Security & Access</span>
             </button>
-            <button class="topic-btn" data-topic="Tokens & Staking Rewards">
+            <button class="topic-btn" onclick="openTawkChat('Tokens & Staking Rewards')">
               <i data-lucide="coins"></i>
               <span>Tokens & Staking</span>
             </button>
-            <button class="topic-btn" data-topic="Report Suspicious Activity">
+            <button class="topic-btn" onclick="openTawkChat('Report Suspicious Activity')">
               <i data-lucide="alert-triangle"></i>
               <span>Report Scam / Fraud</span>
             </button>
@@ -110,127 +107,9 @@
             <i data-lucide="mail"></i> support@trust.com
           </a>
         </div>
-      </section>
 
-      <!-- Right Panel: Live Chat Window (Centerpiece) -->
-      <section class="chat-panel">
-        <div class="chat-card">
-          <!-- Chat Card Header -->
-          <div class="chat-card-header">
-            <div class="agent-profile">
-              <div class="agent-avatar-wrap">
-                <img src="PUBLIC/logo.jpeg" alt="Agent Avatar" class="agent-avatar-img">
-                <span class="online-indicator"></span>
-              </div>
-              <div class="agent-meta">
-                <div class="agent-name-row">
-                  <span class="agent-name">TRUST Support Agent</span>
-                  <span class="verified-badge" title="Official Verified Agent">
-                    <i data-lucide="badge-check"></i> Verified
-                  </span>
-                </div>
-                <span class="agent-activity">Active Now • Dedicated Assistance</span>
-              </div>
-            </div>
-
-            <div class="chat-header-tools">
-              <button class="chat-tool-btn" id="clearChatBtn" title="Clear Conversation" aria-label="Clear chat">
-                <i data-lucide="rotate-ccw"></i>
-              </button>
-              <button class="chat-tool-btn" id="soundToggleBtn" title="Toggle Sound" aria-label="Toggle sound">
-                <i data-lucide="volume-2" id="soundIcon"></i>
-              </button>
-            </div>
-          </div>
-
-          <!-- Chat Conversation Area -->
-          <div class="chat-stream" id="chatStream">
-            <!-- System Security Note -->
-            <div class="system-message">
-              <i data-lucide="lock"></i>
-              <span>End-to-end encrypted session connected to TRUST Help Desk</span>
-            </div>
-
-            <!-- Welcome Bot Message -->
-            <div class="message-bubble bot-bubble">
-              <div class="bubble-avatar">
-                <img src="PUBLIC/logo.jpeg" alt="TRUST">
-              </div>
-              <div class="bubble-body">
-                <div class="bubble-content">
-                  <p>Welcome to <strong class="brand-name-blue">TRUST</strong> Live Support! 👋</p>
-                  <p>How can our team help safeguard and assist you today? Select a topic on the left or type your
-                    message below.</p>
-                </div>
-                <span class="bubble-time">Just now</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Typing Indicator (Hidden by default) -->
-          <div class="typing-bar" id="typingBar" style="display: none;">
-            <div class="typing-avatar">
-              <img src="PUBLIC/logo.jpeg" alt="Agent">
-            </div>
-            <div class="typing-bubble">
-              <span class="t-dot"></span>
-              <span class="t-dot"></span>
-              <span class="t-dot"></span>
-            </div>
-            <span class="typing-text">Agent is replying...</span>
-          </div>
-
-          <!-- Chat Input Bar -->
-          <div class="chat-composer-wrap">
-            <form id="chatForm" class="chat-composer-form">
-              <button type="button" class="composer-icon-btn" id="attachBtn" title="Attach file or screenshot"
-                aria-label="Attach file">
-                <i data-lucide="paperclip"></i>
-              </button>
-              <input type="file" id="hiddenFileInput" style="display: none;" accept="image/*,.pdf">
-
-              <input type="text" id="chatInput" class="composer-input"
-                placeholder="Type your message to TRUST Support..." autocomplete="off" required>
-
-              <button type="submit" class="composer-send-btn" id="sendBtn" aria-label="Send message">
-                <i data-lucide="send"></i>
-              </button>
-            </form>
-          </div>
-        </div>
       </section>
     </main>
-  </div>
-
-  <!-- Connect Third-Party Live Chat Modal (Tawk.to / Crisp / Custom) -->
-  <div class="modal-overlay" id="connectModal" style="display: none;">
-    <div class="modal-card">
-      <div class="modal-header">
-        <div class="modal-header-icon">
-          <i data-lucide="plug-2"></i>
-        </div>
-        <div>
-          <h3 class="modal-title">Live Chat Integration</h3>
-          <p class="modal-subtitle">Connect your live chat service (Tawk.to, Crisp, Intercom, Zendesk) or use the
-            built-in live agent interface.</p>
-        </div>
-        <button class="modal-close-btn" id="closeModalBtn" aria-label="Close modal">
-          <i data-lucide="x"></i>
-        </button>
-      </div>
-
-      <div class="modal-body">
-        <label for="chatEmbedCode" class="modal-label">Paste Embed Script or Property ID:</label>
-        <textarea id="chatEmbedCode" rows="4" class="modal-textarea"
-          placeholder="Paste your Tawk.to, Crisp, or Intercom widget embed code here..."></textarea>
-        <p class="modal-hint">Leave blank to use the built-in instant TRUST live chat interface.</p>
-      </div>
-
-      <div class="modal-footer">
-        <button class="btn btn-secondary" id="cancelModalBtn">Use Built-in Chat</button>
-        <button class="btn btn-primary" id="saveIntegrationBtn">Save & Connect</button>
-      </div>
-    </div>
   </div>
 
   <!-- Toast Notification -->
@@ -249,8 +128,21 @@
       s1.setAttribute('crossorigin', '*');
       s0.parentNode.insertBefore(s1, s0);
     })();
+
+    // Open Tawk.to chat with a pre-set message when topic buttons are clicked
+    function openTawkChat(topic) {
+      if (typeof Tawk_API !== 'undefined' && Tawk_API.maximize) {
+        Tawk_API.maximize();
+        setTimeout(function () {
+          if (Tawk_API.setAttributes) {
+            Tawk_API.setAttributes({ topic: topic }, function (error) { });
+          }
+        }, 500);
+      }
+    }
   </script>
   <!--End of Tawk.to Script-->
+
 </body>
 
 </html>
